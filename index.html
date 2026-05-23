@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Community Service Project 2026 | GDC Cheepurupalli</title>
+  <meta name="description" content="Community Service Project 2026 portal for Government Degree College, Cheepurupalli, Vizianagaram District." />
+  <meta name="theme-color" content="#0b3f9f" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg1: #f7fbff;
+      --bg2: #eaf2fb;
+      --ink: #102033;
+      --muted: #667085;
+      --blue: #1455d9;
+      --blue-dark: #0b3f9f;
+      --green: #0f766e;
+      --orange: #ea580c;
+      --red: #c62828;
+      --card: #ffffff;
+      --line: rgba(16, 24, 40, 0.10);
+      --shadow: 0 18px 45px rgba(16, 24, 40, 0.12);
+      --soft-shadow: 0 10px 28px rgba(16, 24, 40, 0.10);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(20, 85, 217, 0.16), transparent 32%),
+        radial-gradient(circle at top right, rgba(15, 118, 110, 0.14), transparent 30%),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+    }
+
+    a,
+    button {
+      font: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    .top-space {
+      height: 10px;
+    }
+
+    .mobile-friendly-header {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      border-radius: 24px;
+      padding: 25px 20px;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.26), transparent 32%),
+        linear-gradient(135deg, #0b3f9f 0%, #0f766e 100%);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .mobile-friendly-header::before,
+    .mobile-friendly-header::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      opacity: 0.14;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .mobile-friendly-header::before {
+      width: 230px;
+      height: 230px;
+      border: 36px solid #ffffff;
+      top: -130px;
+      right: -90px;
+    }
+
+    .mobile-friendly-header::after {
+      width: 170px;
+      height: 170px;
+      border: 28px solid #fbbf24;
+      bottom: -100px;
+      left: -70px;
+    }
+
+    .college-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+      padding: 8px 15px;
+      margin-bottom: 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.78rem;
+      line-height: 1.25;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      overflow-wrap: anywhere;
+    }
+
+    .mobile-friendly-header h1 {
+      font-family: "Rajdhani", "Inter", sans-serif;
+      font-size: clamp(1.65rem, 4vw, 3rem);
+      line-height: 1.02;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .mobile-friendly-header h2 {
+      margin-top: 7px;
+      font-family: "Rajdhani", "Inter", sans-serif;
+      font-size: clamp(1rem, 2.1vw, 1.38rem);
+      line-height: 1.12;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fde68a;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .header-note {
+      max-width: 760px;
+      margin: 12px auto 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.96rem;
+      line-height: 1.58;
+      overflow-wrap: anywhere;
+    }
+
+    main {
+      padding: 18px 0 30px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 8px 0 16px;
+    }
+
+    .section-head h3 {
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin-top: 6px;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .status-pill {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.10);
+      color: #08796b;
+      border: 1px solid rgba(15, 118, 110, 0.18);
+      font-weight: 800;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #10b981;
+      box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.14);
+    }
+
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .phase-card {
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--soft-shadow);
+      position: relative;
+      overflow: hidden;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .phase-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 50px rgba(16, 24, 40, 0.16);
+    }
+
+    .phase-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: var(--accent);
+    }
+
+    .phase-card::after {
+      content: "";
+      position: absolute;
+      right: -44px;
+      bottom: -44px;
+      width: 135px;
+      height: 135px;
+      border-radius: 50%;
+      background: var(--circle);
+      pointer-events: none;
+    }
+
+    .phase-blue {
+      --accent: linear-gradient(135deg, #2563eb, #0b3f9f);
+      --button: linear-gradient(135deg, #2563eb, #0b3f9f);
+      --circle: rgba(37, 99, 235, 0.12);
+      --soft: rgba(37, 99, 235, 0.10);
+    }
+
+    .phase-green {
+      --accent: linear-gradient(135deg, #0f766e, #14b8a6);
+      --button: linear-gradient(135deg, #0f766e, #0d9488);
+      --circle: rgba(15, 118, 110, 0.12);
+      --soft: rgba(15, 118, 110, 0.10);
+    }
+
+    .phase-orange {
+      --accent: linear-gradient(135deg, #ea580c, #b45309);
+      --button: linear-gradient(135deg, #ea580c, #b45309);
+      --circle: rgba(234, 88, 12, 0.12);
+      --soft: rgba(234, 88, 12, 0.10);
+    }
+
+    .card-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      background: var(--soft);
+      font-size: 1.45rem;
+    }
+
+    .badge {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(16, 24, 40, 0.05);
+      color: #475467;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .phase-card h4 {
+      position: relative;
+      z-index: 1;
+      font-size: 1.14rem;
+      line-height: 1.28;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+
+    .phase-card p {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .open-btn {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      min-height: 48px;
+      border: 0;
+      border-radius: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--button);
+      color: #ffffff;
+      box-shadow: 0 12px 22px rgba(16, 24, 40, 0.16);
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 150ms ease, filter 150ms ease;
+    }
+
+    .open-btn:hover,
+    .open-btn:focus-visible {
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+      outline: none;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 15px 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(20, 85, 217, 0.12);
+      color: var(--muted);
+      line-height: 1.65;
+      box-shadow: 0 10px 28px rgba(16, 24, 40, 0.08);
+      font-size: 0.94rem;
+    }
+
+    .notice strong {
+      color: var(--blue-dark);
+    }
+
+    .setup-warning {
+      display: none;
+      margin-top: 14px;
+      padding: 13px 15px;
+      border-radius: 16px;
+      border: 1px solid rgba(234, 88, 12, 0.25);
+      background: #fff7ed;
+      color: #9a3412;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .setup-warning.show {
+      display: block;
+    }
+
+    footer {
+      padding: 8px 0 30px;
+      text-align: center;
+      color: #667085;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    footer strong {
+      color: #344054;
+    }
+
+    @media (max-width: 920px) {
+      .phase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .status-pill {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 24px, 520px);
+      }
+
+      .mobile-friendly-header {
+        padding: 22px 16px;
+        border-radius: 22px;
+      }
+
+      .college-pill {
+        font-size: 0.68rem;
+        line-height: 1.25;
+        padding: 7px 12px;
+        margin-bottom: 11px;
+      }
+
+      .mobile-friendly-header h1 {
+        font-size: clamp(1.58rem, 8vw, 2.08rem);
+        line-height: 1.02;
+      }
+
+      .mobile-friendly-header h2 {
+        font-size: clamp(0.88rem, 4.6vw, 1.12rem);
+        line-height: 1.16;
+      }
+
+      .header-note {
+        font-size: 0.86rem;
+        line-height: 1.48;
+        margin-top: 10px;
+      }
+
+      main {
+        padding-top: 16px;
+      }
+
+      .section-head {
+        margin-top: 6px;
+        margin-bottom: 14px;
+      }
+
+      .section-head h3 {
+        font-size: 1.34rem;
+      }
+
+      .section-head p {
+        font-size: 0.9rem;
+      }
+
+      .phase-card {
+        min-height: 285px;
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .phase-card h4 {
+        font-size: 1.12rem;
+      }
+
+      .phase-card p {
+        font-size: 0.92rem;
+      }
+
+      .open-btn {
+        min-height: 50px;
+      }
+
+      .notice {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .shell {
+        width: min(100% - 20px, 520px);
+      }
+
+      .mobile-friendly-header {
+        padding: 20px 14px;
+      }
+
+      .college-pill {
+        font-size: 0.62rem;
+      }
+
+      .mobile-friendly-header h1 {
+        font-size: 1.48rem;
+      }
+
+      .mobile-friendly-header h2 {
+        font-size: 0.84rem;
+      }
+
+      .phase-card {
+        min-height: 280px;
+        padding: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-space"></div>
+
+  <header class="shell">
+    <section class="mobile-friendly-header">
+      <div class="college-pill">Government Degree College, Cheepurupalli</div>
+      <h1>Community Service Project 2026</h1>
+      <h2>Vizianagaram District</h2>
+      <p class="header-note">
+        Central access portal for Socio Economic Survey, Community Awareness Campaign, and Project Work services.
+      </p>
+    </section>
+  </header>
+
+  <main class="shell">
+    <section class="section-head">
+      <div>
+        <h3>Dashboard Quick Access</h3>
+        <p>
+          Select the correct project phase. Phase 2 and Phase 3 dashboards are open, while their protected forms verify eligibility before opening.
+        </p>
+      </div>
+
+      <div class="status-pill">
+        <span class="dot"></span>
+        Ready for CSP 2026
+      </div>
+    </section>
+
+    <section class="phase-grid" aria-label="Community Service Project phases">
+      <article class="phase-card phase-blue">
+        <div>
+          <div class="card-top">
+            <span class="icon" aria-hidden="true">📊</span>
+            <span class="badge">Phase 1</span>
+          </div>
+          <h4>Socio Economic Survey</h4>
+          <p>Open the Phase 1 dashboard for survey form, student status reports, final reports, and survey analytics.</p>
+        </div>
+
+        <a class="open-btn" href="https://jwala-ui.github.io/Socio-Economic-Survey-dashboard-2026/" target="_blank" rel="noopener">
+          Open Now <span aria-hidden="true">→</span>
+        </a>
+      </article>
+
+      <article class="phase-card phase-green">
+        <div>
+          <div class="card-top">
+            <span class="icon" aria-hidden="true">📢</span>
+            <span class="badge">Phase 2</span>
+          </div>
+          <h4>Community Awareness Campaign</h4>
+          <p>Open the Phase 2 dashboard for Community Awareness form submission, report download, and status monitoring.</p>
+        </div>
+
+        <a class="open-btn" href="#" data-apps-script-page="communityAwarenessDashboard">
+          Open Now <span aria-hidden="true">→</span>
+        </a>
+      </article>
+
+      <article class="phase-card phase-orange">
+        <div>
+          <div class="card-top">
+            <span class="icon" aria-hidden="true">📝</span>
+            <span class="badge">Phase 3</span>
+          </div>
+          <h4>Project Work</h4>
+          <p>Open the Phase 3 dashboard for respondent interaction submission, studentwise, groupwise, and mentorwise reports.</p>
+        </div>
+
+        <a class="open-btn" href="#" data-apps-script-page="projectWorkDashboard">
+          Open Now <span aria-hidden="true">→</span>
+        </a>
+      </article>
+    </section>
+
+    <section class="notice">
+      <strong>Important:</strong> Students should use the same Registration No and Email ID across all phases. Community Awareness opens after 50 household surveys, and Project Work opens after successful completion of Phase 1 and Phase 2.
+    </section>
+
+    <section id="setupWarning" class="setup-warning">
+      Please replace <strong>PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE</strong> in this file with your deployed Apps Script Web App URL before sharing this GitHub page.
+    </section>
+  </main>
+
+  <footer class="shell">
+    Generated by <strong>IQAC, GDC Cheepurupalli</strong>. All rights are reserved with Government Degree College, Cheepurupalli.
+  </footer>
+
+  <script>
+    /*
+      GitHub Pages setup:
+      1. Paste your deployed Apps Script Web App URL below.
+      2. Keep the URL without query parameters.
+      Example:
+      const APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxxxxxxxxxxxxxxxx/exec";
+    */
+    const APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+
+    function isAppsScriptUrlConfigured() {
+      return (
+        APPS_SCRIPT_WEB_APP_URL &&
+        APPS_SCRIPT_WEB_APP_URL !== "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE" &&
+        /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(APPS_SCRIPT_WEB_APP_URL)
+      );
+    }
+
+    function openAppsScriptPage(pageName) {
+      if (!isAppsScriptUrlConfigured()) {
+        document.getElementById("setupWarning").classList.add("show");
+        document.getElementById("setupWarning").scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      const targetUrl = APPS_SCRIPT_WEB_APP_URL + "?page=" + encodeURIComponent(pageName);
+      window.location.href = targetUrl;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const phaseLinks = document.querySelectorAll("[data-apps-script-page]");
+
+      phaseLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          openAppsScriptPage(link.getAttribute("data-apps-script-page"));
+        });
+      });
+    });
+  </script>
+</body>
+</html>
