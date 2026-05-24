@@ -641,7 +641,13 @@
       }
 
       const targetUrl = APPS_SCRIPT_WEB_APP_URL + "?page=" + encodeURIComponent(pageName);
-      window.location.href = targetUrl;
+
+      /*
+        Force Phase 2 and Phase 3 to open as full pages.
+        This prevents the Apps Script dashboard from behaving like it is trapped
+        inside a parent page or browser wrapper on mobile.
+      */
+      window.top.location.assign(targetUrl);
     }
 
     document.addEventListener("DOMContentLoaded", function () {
